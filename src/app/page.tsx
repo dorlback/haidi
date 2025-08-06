@@ -8,37 +8,37 @@ import type { TooltipItem } from 'chart.js';
 // Visualization & Content Choices: 1. Soup Cost Comparison: Report data on 1/2/4-pot pricing -> Goal: Compare/Persuade -> Viz: Bar Chart -> Interaction: Visually show cost-effectiveness -> Justification: A chart is more impactful than a table for comparing prices -> Library: Chart.js. 2. Sauce Recipes: Report data on popular sauce formulas -> Goal: Instruct/Organize -> Viz: Interactive Cards -> Interaction: Click to reveal recipe details -> Justification: Hides complexity, allows users to focus on one recipe at a time. 3. Pro Food Hacks: Report info on DIY Menbosha etc. -> Goal: Inspire/Instruct -> Viz: Step-by-step illustrated cards -> Interaction: Click to expand -> Justification: Breaks down a creative process into simple, engaging steps. All interactions are designed to transform passive reading into active exploration.
 // CONFIRMATION: NO SVG graphics used. NO Mermaid JS used.
 
-const branchData = [
-  { name: '명동점', address: '서울 중구 명동3길 36', hours: '10:00 ~ 05:00' },
-  { name: '강남점', address: '서울 서초구 서초대로 77길 54', hours: '10:00 ~ 07:00' },
-  { name: '홍대점', address: '서울 마포구 양화로 176', hours: '10:00 ~ 05:00' },
-  { name: '건대점', address: '서울 광진구 능동로 110', hours: '10:00 ~ 05:00' },
-];
+// const branchData = [
+//   { name: '명동점', address: '서울 중구 명동3길 36', hours: '10:00 ~ 05:00' },
+//   { name: '강남점', address: '서울 서초구 서초대로 77길 54', hours: '10:00 ~ 07:00' },
+//   { name: '홍대점', address: '서울 마포구 양화로 176', hours: '10:00 ~ 05:00' },
+//   { name: '건대점', address: '서울 광진구 능동로 110', hours: '10:00 ~ 05:00' },
+// ];
 
-const ingredientsData: Record<'soup' | 'meat' | 'seafood' | 'etc', { name: string; desc: string; icon: string }[]> = {
-  soup: [
-    { name: '청유마라훠궈 (홍탕)', desc: '얼얼하고 매운 사천 정통의 맛. 매운맛, 얼얼함 조절 가능. 우삼겹과 찰떡궁합!', icon: '🌶️' },
-    { name: '토마토탕', desc: '새콤달콤 감칠맛 폭발! 매운 것을 못 먹는 사람에게 강력 추천. 해장용으로도 최고.', icon: '🍅' },
-    { name: '삼선탕 (백탕)', desc: '순하고 담백한 맛. 훠궈 초보자나 재료 본연의 맛을 즐기고 싶을 때 좋은 선택.', icon: '🍲' },
-    { name: '버섯탕', desc: '다양한 버섯의 깊고 향긋한 풍미. 채소류와 특히 잘 어울립니다.', icon: '🍄' },
-    { name: '맑은 탕', desc: '무료 또는 최소 비용. 4칸 주문 시 비용 절약용으로 활용. 국자 헹굼용으로도 유용.', icon: '💧' },
-  ],
-  meat: [
-    { name: '우삼겹', desc: '기름지고 고소한 맛으로 홍탕과 특히 잘 어울리는 인기 메뉴.', icon: '🥩' },
-    { name: '목살', desc: '담백한 살코기를 선호하는 분들에게 추천하는 부위.', icon: '🍖' },
-    { name: '특제 소고기', desc: '두께감이 있어도 입에서 살살 녹는 부드러운 식감이 일품.', icon: '✨' },
-  ],
-  seafood: [
-    { name: '새우 완자', desc: '모든 사람이 추천하는 필수 주문 메뉴! 직원이 직접 만들어 넣어주어 탱글한 식감이 살아있습니다.', icon: '🍤' },
-    { name: '갑오징어 완자', desc: '쫄깃한 식감과 풍부한 맛으로 새우 완자와 쌍벽을 이루는 인기 메뉴.', icon: '🦑' },
-  ],
-  etc: [
-    { name: '두유피', desc: '일반 두부피와 다른 야들야들하고 부드러운 독특한 식감. 꼭 한번 시도해보세요.', icon: '📜' },
-    { name: '고구마 당면', desc: '쫄깃한 식감으로 훠궈의 맛을 한층 더 풍부하게 만들어줍니다.', icon: '🍠' },
-    { name: '쿵푸면 (생면)', desc: '면을 주문하면 직원이 테이블에서 화려한 수타면 퍼포먼스를 보여줍니다. 맛과 재미를 동시에!', icon: '🍜' },
-    { name: '계란 국수', desc: '토마토탕에 날계란을 풀어 함께 끓여 먹으면 극락의 맛을 경험할 수 있습니다.', icon: '🥚' },
-  ],
-};
+// const ingredientsData: Record<'soup' | 'meat' | 'seafood' | 'etc', { name: string; desc: string; icon: string }[]> = {
+//   soup: [
+//     { name: '청유마라훠궈 (홍탕)', desc: '얼얼하고 매운 사천 정통의 맛. 매운맛, 얼얼함 조절 가능. 우삼겹과 찰떡궁합!', icon: '🌶️' },
+//     { name: '토마토탕', desc: '새콤달콤 감칠맛 폭발! 매운 것을 못 먹는 사람에게 강력 추천. 해장용으로도 최고.', icon: '🍅' },
+//     { name: '삼선탕 (백탕)', desc: '순하고 담백한 맛. 훠궈 초보자나 재료 본연의 맛을 즐기고 싶을 때 좋은 선택.', icon: '🍲' },
+//     { name: '버섯탕', desc: '다양한 버섯의 깊고 향긋한 풍미. 채소류와 특히 잘 어울립니다.', icon: '🍄' },
+//     { name: '맑은 탕', desc: '무료 또는 최소 비용. 4칸 주문 시 비용 절약용으로 활용. 국자 헹굼용으로도 유용.', icon: '💧' },
+//   ],
+//   meat: [
+//     { name: '우삼겹', desc: '기름지고 고소한 맛으로 홍탕과 특히 잘 어울리는 인기 메뉴.', icon: '🥩' },
+//     { name: '목살', desc: '담백한 살코기를 선호하는 분들에게 추천하는 부위.', icon: '🍖' },
+//     { name: '특제 소고기', desc: '두께감이 있어도 입에서 살살 녹는 부드러운 식감이 일품.', icon: '✨' },
+//   ],
+//   seafood: [
+//     { name: '새우 완자', desc: '모든 사람이 추천하는 필수 주문 메뉴! 직원이 직접 만들어 넣어주어 탱글한 식감이 살아있습니다.', icon: '🍤' },
+//     { name: '갑오징어 완자', desc: '쫄깃한 식감과 풍부한 맛으로 새우 완자와 쌍벽을 이루는 인기 메뉴.', icon: '🦑' },
+//   ],
+//   etc: [
+//     { name: '두유피', desc: '일반 두부피와 다른 야들야들하고 부드러운 독특한 식감. 꼭 한번 시도해보세요.', icon: '📜' },
+//     { name: '고구마 당면', desc: '쫄깃한 식감으로 훠궈의 맛을 한층 더 풍부하게 만들어줍니다.', icon: '🍠' },
+//     { name: '쿵푸면 (생면)', desc: '면을 주문하면 직원이 테이블에서 화려한 수타면 퍼포먼스를 보여줍니다. 맛과 재미를 동시에!', icon: '🍜' },
+//     { name: '계란 국수', desc: '토마토탕에 날계란을 풀어 함께 끓여 먹으면 극락의 맛을 경험할 수 있습니다.', icon: '🥚' },
+//   ],
+// };
 
 const sauceRecipes = [
   {
@@ -109,7 +109,7 @@ const hacksData = [
 ];
 
 function App() {
-  const [activeIngredientTab, setActiveIngredientTab] = useState<'soup' | 'meat' | 'seafood' | 'etc'>('soup');
+  // const [activeIngredientTab, setActiveIngredientTab] = useState<'soup' | 'meat' | 'seafood' | 'etc'>('soup');
   const [selectedRecipeIndex, setSelectedRecipeIndex] = useState(0);
   const [activeNavSection, setActiveNavSection] = useState('intro');
   const potChartRef = useRef<HTMLCanvasElement | null>(null);
