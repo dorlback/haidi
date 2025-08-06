@@ -232,12 +232,12 @@ function App() {
               <h1 className="text-xl font-bold text-red-800">하이디라오 완전정복</h1>
             </div>
             <div className="hidden md:flex items-center space-x-1">
-              <a href="#intro" className={`nav-link px-3 py-2 text-sm font-medium text-stone-600 hover:text-red-700 border-b-2 border-transparent ${activeNavSection === 'intro' ? 'active' : ''}`}>소개</a>
+              {/* <a href="#intro" className={`nav-link px-3 py-2 text-sm font-medium text-stone-600 hover:text-red-700 border-b-2 border-transparent ${activeNavSection === 'intro' ? 'active' : ''}`}>소개</a>
               <a href="#plan" className={`nav-link px-3 py-2 text-sm font-medium text-stone-600 hover:text-red-700 border-b-2 border-transparent ${activeNavSection === 'plan' ? 'active' : ''}`}>1. 계획 & 예약</a>
-              <a href="#build" className={`nav-link px-3 py-2 text-sm font-medium text-stone-600 hover:text-red-700 border-b-2 border-transparent ${activeNavSection === 'build' ? 'active' : ''}`}>2. 훠궈 만들기</a>
-              <a href="#sauce" className={`nav-link px-3 py-2 text-sm font-medium text-stone-600 hover:text-red-700 border-b-2 border-transparent ${activeNavSection === 'sauce' ? 'active' : ''}`}>3. 소스 마스터</a>
-              <a href="#hacks" className={`nav-link px-3 py-2 text-sm font-medium text-stone-600 hover:text-red-700 border-b-2 border-transparent ${activeNavSection === 'hacks' ? 'active' : ''}`}>4. 고수들의 꿀팁</a>
-              <a href="#checklist" className={`nav-link px-3 py-2 text-sm font-medium text-stone-600 hover:text-red-700 border-b-2 border-transparent ${activeNavSection === 'checklist' ? 'active' : ''}`}>5. 최종 체크리스트</a>
+              <a href="#build" className={`nav-link px-3 py-2 text-sm font-medium text-stone-600 hover:text-red-700 border-b-2 border-transparent ${activeNavSection === 'build' ? 'active' : ''}`}>2. 훠궈 만들기</a> */}
+              <a href="#sauce" className={`nav-link px-3 py-2 text-sm font-medium text-stone-600 hover:text-red-700 border-b-2 border-transparent ${activeNavSection === 'sauce' ? 'active' : ''}`}>소스 조합</a>
+              <a href="#hacks" className={`nav-link px-3 py-2 text-sm font-medium text-stone-600 hover:text-red-700 border-b-2 border-transparent ${activeNavSection === 'hacks' ? 'active' : ''}`}>꿀팁</a>
+              {/* <a href="#checklist" className={`nav-link px-3 py-2 text-sm font-medium text-stone-600 hover:text-red-700 border-b-2 border-transparent ${activeNavSection === 'checklist' ? 'active' : ''}`}>5. 최종 체크리스트</a> */}
             </div>
             <div className="md:hidden">
               <select id="mobile-nav" className="bg-white border border-stone-300 rounded-md px-2 py-1 text-sm" onChange={handleMobileNavChange} value={`#${activeNavSection}`}>
@@ -245,7 +245,7 @@ function App() {
                 {/* <option value="#plan">1. 계획 & 예약</option> */}
                 {/* <option value="#build">훠궈 만들기</option> */}
                 <option value="#sauce">소스 조합</option>
-                <option value="#hacks">고수들의 꿀팁</option>
+                <option value="#hacks">꿀팁</option>
                 {/* <option value="#checklist">5. 최종 체크리스트</option> */}
               </select>
             </div>
